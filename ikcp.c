@@ -400,7 +400,7 @@ int ikcp_recv(ikcpcb *kcp, char *buffer, int len)
 		if (ikcp_canlog(kcp, IKCP_LOG_RECV)) {
 			ikcp_log(kcp, IKCP_LOG_RECV, "recv sn=%lu", (unsigned long)seg->sn);
 		}
-		// 如果是peek
+		// 如果是不是peek
 		if (ispeek == 0) {
 			// 把节点从recv queue中移除
 			iqueue_del(&seg->node);
@@ -416,7 +416,7 @@ int ikcp_recv(ikcpcb *kcp, char *buffer, int len)
 
 	// move available data from rcv_buf -> rcv_queue
 	// recv buffer中的内容移到recv queue中
-	while (! iqueue_is_empty(&kcp->rcv_buf)) {
+	while (!iqueue_is_empty(&kcp->rcv_buf)) {
 		// recv buffer中剩余内容
 		seg = iqueue_entry(kcp->rcv_buf.next, IKCPSEG, node);
 		// 满足窗口大小且是预期接收的内容
@@ -733,13 +733,13 @@ void ikcp_parse_data(ikcpcb *kcp, IKCPSEG *newseg)
 	struct IQUEUEHEAD *p, *prev;
 	IUINT32 sn = newseg->sn;
 	int repeat = 0;
-	
+	// 窗口外的包或者过期包
 	if (_itimediff(sn, kcp->rcv_nxt + kcp->rcv_wnd) >= 0 ||
 		_itimediff(sn, kcp->rcv_nxt) < 0) {
 		ikcp_segment_delete(kcp, newseg);
 		return;
 	}
-
+	// 重复包
 	for (p = kcp->rcv_buf.prev; p != &kcp->rcv_buf; p = prev) {
 		IKCPSEG *seg = iqueue_entry(p, IKCPSEG, node);
 		prev = p->prev;
@@ -751,7 +751,7 @@ void ikcp_parse_data(ikcpcb *kcp, IKCPSEG *newseg)
 			break;
 		}
 	}
-
+	// 插入接收队列
 	if (repeat == 0) {
 		iqueue_init(&newseg->node);
 		iqueue_add(&newseg->node, p);
@@ -764,7 +764,7 @@ void ikcp_parse_data(ikcpcb *kcp, IKCPSEG *newseg)
 	ikcp_qprint("rcvbuf", &kcp->rcv_buf);
 	printf("rcv_nxt=%lu\n", kcp->rcv_nxt);
 #endif
-
+	// 将receiveBuffer里中东西移到receiveQueue中
 	// move available data from rcv_buf -> rcv_queue
 	while (! iqueue_is_empty(&kcp->rcv_buf)) {
 		IKCPSEG *seg = iqueue_entry(kcp->rcv_buf.next, IKCPSEG, node);
