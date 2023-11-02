@@ -400,6 +400,7 @@ int ikcp_recv(ikcpcb *kcp, char *buffer, int len)
 		if (ikcp_canlog(kcp, IKCP_LOG_RECV)) {
 			ikcp_log(kcp, IKCP_LOG_RECV, "recv sn=%lu", (unsigned long)seg->sn);
 		}
+		
 		// 如果是不是peek
 		if (ispeek == 0) {
 			// 把节点从recv queue中移除
@@ -964,7 +965,7 @@ int ikcp_input(ikcpcb *kcp, const char *data, long size)
 				if (kcp->incr < mss) {
 					kcp->incr = mss;
 				}
-				// 指数级增长
+				// 对数级增长
 				kcp->incr += (mss * mss) / kcp->incr + (mss / 16);
 				if ((kcp->cwnd + 1) * mss <= kcp->incr) {
 				#if 1
@@ -1275,7 +1276,6 @@ void ikcp_flush(ikcpcb *kcp)
 		// 阈值不小于下限
 		if (kcp->ssthresh < IKCP_THRESH_MIN)
 			kcp->ssthresh = IKCP_THRESH_MIN;
-		// 
 		kcp->cwnd = 1;
 		kcp->incr = kcp->mss;
 	}
