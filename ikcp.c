@@ -649,7 +649,7 @@ static void ikcp_parse_una(ikcpcb *kcp, IUINT32 una)
 static void ikcp_parse_fastack(ikcpcb *kcp, IUINT32 sn, IUINT32 ts)
 {
 	struct IQUEUEHEAD *p, *next;
-	// 无效包: 已经收到过或还没过的包
+	// 无效包: 已经收到过或还没发送过的包
 	if (_itimediff(sn, kcp->snd_una) < 0 || _itimediff(sn, kcp->snd_nxt) >= 0)
 		return;
 
@@ -1264,7 +1264,7 @@ void ikcp_flush(ikcpcb *kcp)
 		// 慢启动不小于慢启动下限
 		if (kcp->ssthresh < IKCP_THRESH_MIN)
 			kcp->ssthresh = IKCP_THRESH_MIN;
-		// 快速重传阈值 + 慢启动阈值
+		// 慢启动阈值 + 快速重传阈值
 		kcp->cwnd = kcp->ssthresh + resent;
 		kcp->incr = kcp->cwnd * kcp->mss;
 	}
