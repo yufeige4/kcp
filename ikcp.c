@@ -415,8 +415,8 @@ int ikcp_recv(ikcpcb *kcp, char *buffer, int len)
 
 	assert(len == peeksize);
 
+	// 将receiveBuffer里中连续且符合预期的数据移到receiveQueue中
 	// move available data from rcv_buf -> rcv_queue
-	// recv buffer中的内容移到recv queue中
 	while (!iqueue_is_empty(&kcp->rcv_buf)) {
 		// recv buffer中剩余内容
 		seg = iqueue_entry(kcp->rcv_buf.next, IKCPSEG, node);
@@ -740,7 +740,7 @@ void ikcp_parse_data(ikcpcb *kcp, IKCPSEG *newseg)
 		ikcp_segment_delete(kcp, newseg);
 		return;
 	}
-	// 重复包
+	// 从后往前遍历并判断是否是重复包
 	for (p = kcp->rcv_buf.prev; p != &kcp->rcv_buf; p = prev) {
 		IKCPSEG *seg = iqueue_entry(p, IKCPSEG, node);
 		prev = p->prev;
@@ -765,7 +765,7 @@ void ikcp_parse_data(ikcpcb *kcp, IKCPSEG *newseg)
 	ikcp_qprint("rcvbuf", &kcp->rcv_buf);
 	printf("rcv_nxt=%lu\n", kcp->rcv_nxt);
 #endif
-	// 将receiveBuffer里中东西移到receiveQueue中
+	// 将receiveBuffer里中连续且符合预期的数据移到receiveQueue中
 	// move available data from rcv_buf -> rcv_queue
 	while (! iqueue_is_empty(&kcp->rcv_buf)) {
 		IKCPSEG *seg = iqueue_entry(kcp->rcv_buf.next, IKCPSEG, node);
