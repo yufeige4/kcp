@@ -1071,7 +1071,7 @@ void ikcp_flush(ikcpcb *kcp)
 	if (kcp->rmt_wnd == 0) {
 		if (kcp->probe_wait == 0) {
 			// 窗口探测参数未初始化
-			// 下次探测为默认7秒后
+			// 第一次探测时间为默认值
 			kcp->probe_wait = IKCP_PROBE_INIT;
 			kcp->ts_probe = kcp->current + kcp->probe_wait;
 		}	
@@ -1397,7 +1397,7 @@ int ikcp_interval(ikcpcb *kcp, int interval)
 	return 0;
 }
 
-int ikcp_nodelay(ikcpcb *kcp, int nodelay, int interval, int resend, int nc)
+int ikcp_setConfig(ikcpcb *kcp, int nodelay, int interval, int resend, int nc)
 {
 	if (nodelay >= 0) {
 		kcp->nodelay = nodelay;
