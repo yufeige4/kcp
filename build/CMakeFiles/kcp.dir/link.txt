@@ -1,0 +1,2 @@
+C:\MinGW\bin\ar.exe qc libkcp.a CMakeFiles/kcp.dir/ikcp.c.obj
+C:\MinGW\bin\ranlib.exe libkcp.a

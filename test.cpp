@@ -9,10 +9,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <fstream>
+#include <iostream>
 #include "test.h"
 #include "ikcp.c"
 
+using namespace std;
 
 // 模拟网络
 LatencySimulator *vnet;
@@ -27,7 +29,7 @@ int udp_output(const char *buf, int len, ikcpcb *kcp, void *user)
 }
 
 // 测试用例
-void test(int mode)
+void test(int mode, FILE* file)
 {
 	// 创建模拟网络：丢包率10%，Rtt 60ms~125ms
 	vnet = new LatencySimulator(10, 60, 125);
@@ -152,30 +154,42 @@ void test(int mode)
 	ikcp_release(kcp1);
 	ikcp_release(kcp2);
 
-	const char *names[3] = { "default", "normal", "fast" };
-	printf("%s mode result (%dms):\n", names[mode], (int)ts1);
-	printf("avgrtt=%d maxrtt=%d tx=%d\n", (int)(sumrtt / count), (int)maxrtt, (int)vnet->tx1);
+	const char *names[3] = { "默认类tcp", "普通kcp", "极速kcp" };
+	printf("%s 模式实验结果 (%dms):\n", names[mode], (int)ts1);
+	fprintf(file,"%s 模式实验结果 (%dms):\n", names[mode], (int)ts1);
+	printf("avgrtt=%d maxrtt=%d tx1=%d tx2=%d\n", (int)(sumrtt / count), (int)maxrtt, (int)vnet->tx1,(int)vnet->tx2);
+	fprintf(file,"avgrtt=%d maxrtt=%d tx1=%d tx2=%d\n\n", (int)(sumrtt / count), (int)maxrtt, (int)vnet->tx1,(int)vnet->tx2);
 	printf("press enter to next ...\n");
+
+	// 将结果写入Log文件中
+
+
 	char ch; scanf("%c", &ch);
 }
 
 int main()
 {
-	test(0);	// 默认模式，类似 TCP：正常模式，无快速重传，常规流控
-	test(1);	// 普通模式，关闭流控等
-	test(2);	// 快速模式，所有开关都打开，且关闭流控
+	const char* fileName = "OutputLog.txt";
+	FILE* file;
+	
+
+	if(file = fopen(fileName,"wt+")){
+		cout << "log文件打开成功"<<endl;
+
+		fputs("开始实验，模拟网络丢包率为10%，rtt为60~125ms, flush间隔为10ms;\n一端发送数据, 另一端收, 收满1000序列号的数据则停止实验：\n\n",file);
+		fputs("开始默认模式，类似 TCP：正常模式(delayed ack)，无快速重传，常规拥塞控制:\n",file);
+		test(0,file);
+		fputs("开始普通模式(delayed ack)，关闭拥塞控制\n",file);
+		test(1,file);
+		fputs("快速模式，所有开关都打开，且关闭拥塞控制\n",file);
+		test(2,file);
+
+		fclose(file);
+	}else{
+		cout << "log文件打开失败"<<endl;
+	}
+
+
 	return 0;
 }
-
-/*
-default mode result (20917ms):
-avgrtt=740 maxrtt=1507
-
-normal mode result (20131ms):
-avgrtt=156 maxrtt=571
-
-fast mode result (20207ms):
-avgrtt=138 maxrtt=392
-*/
-
 

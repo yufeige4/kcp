@@ -1,0 +1,12 @@
+[
+{
+  "directory": "D:/GitHub/kcp/build",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g -o CMakeFiles\\kcp_test.dir\\test.cpp.obj -c D:\\GitHub\\kcp\\test.cpp",
+  "file": "D:/GitHub/kcp/test.cpp"
+},
+{
+  "directory": "D:/GitHub/kcp/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe   -g -o CMakeFiles\\kcp.dir\\ikcp.c.obj -c D:\\GitHub\\kcp\\ikcp.c",
+  "file": "D:/GitHub/kcp/ikcp.c"
+}
+]
