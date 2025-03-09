@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="600" height="400" fill="#f9f9f9" />
+  
+  <!-- 标题 -->
+  <text x="300" y="30" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="#000">KCP网络延迟模拟器</text>
+  
+  <!-- 参数框 -->
+  <rect x="100" y="60" width="400" height="80" rx="5" fill="#e0f7fa" stroke="#006064" stroke-width="2" />
+  
+  <text x="120" y="85" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#000">模拟参数：</text>
+  
+  <text x="150" y="110" font-family="Arial" font-size="14" text-anchor="start" fill="#000">• 丢包率：10%（默认）</text>
+  <text x="350" y="110" font-family="Arial" font-size="14" text-anchor="start" fill="#000">• 最小RTT：60ms</text>
+  <text x="150" y="130" font-family="Arial" font-size="14" text-anchor="start" fill="#000">• 最大RTT：125ms</text>
+  <text x="350" y="130" font-family="Arial" font-size="14" text-anchor="start" fill="#000">• 最大包数：1000</text>
+  
+  <!-- 网络模拟示意图 -->
+  <rect x="50" y="160" width="500" height="200" rx="5" fill="#f0f4c3" stroke="#afb42b" stroke-width="2" />
+  
+  <!-- 节点1 -->
+  <circle cx="150" cy="210" r="40" fill="#bbdefb" stroke="#1565c0" stroke-width="2" />
+  <text x="150" y="215" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#000">节点1</text>
+  
+  <!-- 节点2 -->
+  <circle cx="450" cy="210" r="40" fill="#bbdefb" stroke="#1565c0" stroke-width="2" />
+  <text x="450" y="215" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#000">节点2</text>
+  
+  <!-- 通道1 - 从节点1到节点2 -->
+  <path d="M190,200 C250,150 350,150 410,200" stroke="#f44336" stroke-width="3" fill="none" marker-end="url(#redArrow)" />
+  <text x="300" y="140" font-family="Arial" font-size="14" text-anchor="middle" fill="#f44336">丢包、延迟通道1</text>
+  
+  <!-- 通道2 - 从节点2到节点1 -->
+  <path d="M410,220 C350,270 250,270 190,220" stroke="#4caf50" stroke-width="3" fill="none" marker-end="url(#greenArrow)" />
+  <text x="300" y="290" font-family="Arial" font-size="14" text-anchor="middle" fill="#4caf50">丢包、延迟通道2</text>
+  
+  <!-- 节点功能 -->
+  <text x="150" y="260" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">send() → 通道1</text>
+  <text x="150" y="275" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">recv() ← 通道2</text>
+  
+  <text x="450" y="260" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">send() → 通道2</text>
+  <text x="450" y="275" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">recv() ← 通道1</text>
+  
+  <!-- 延迟/丢包机制 -->
+  <rect x="260" y="185" width="80" height="50" rx="5" fill="#ffccbc" stroke="#e64a19" stroke-width="1" />
+  <text x="300" y="205" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">模拟丢包</text>
+  <text x="300" y="225" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">模拟延迟</text>
+  
+  <!-- 代码示例 -->
+  <rect x="100" y="370" width="400" height="20" rx="0" fill="#ffffff" stroke="#9e9e9e" stroke-width="1" />
+  <text x="300" y="385" font-family="Arial" font-size="12" font-style="italic" text-anchor="middle" fill="#000">来源：test.h中的LatencySimulator类</text>
+  
+  <!-- 箭头标记定义 -->
+  <defs>
+    <marker id="redArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f44336" />
+    </marker>
+    <marker id="greenArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4caf50" />
+    </marker>
+  </defs>
+</svg> 

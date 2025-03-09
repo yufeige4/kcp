@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="650" height="470" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="650" height="470" fill="#f9f9f9" />
+  
+  <!-- 标题 -->
+  <text x="325" y="35" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="#000">KCP配置参数优化</text>
+  
+  <!-- 主要参数框 -->
+  <rect x="50" y="60" width="550" height="180" rx="5" fill="#e3f2fd" stroke="#1565c0" stroke-width="2" />
+  <text x="60" y="80" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#000">核心配置参数</text>
+  
+  <!-- 无延迟模式参数 -->
+  <rect x="70" y="100" width="250" height="60" rx="5" fill="#bbdefb" stroke="#1565c0" stroke-width="1" />
+  <text x="195" y="120" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">无延迟模式</text>
+  <text x="195" y="140" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">是否启用无延迟模式</text>
+  <text x="195" y="155" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">值: 0(关闭), 1(开启)</text>
+  
+  <!-- 时钟间隔参数 -->
+  <rect x="330" y="100" width="250" height="60" rx="5" fill="#bbdefb" stroke="#1565c0" stroke-width="1" />
+  <text x="455" y="120" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">时钟间隔</text>
+  <text x="455" y="140" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">内部更新时钟的间隔</text>
+  <text x="455" y="155" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">单位: 毫秒, 如10ms, 20ms, 40ms</text>
+  
+  <!-- 快速重传参数 -->
+  <rect x="70" y="170" width="250" height="60" rx="5" fill="#bbdefb" stroke="#1565c0" stroke-width="1" />
+  <text x="195" y="190" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">快速重传次数</text>
+  <text x="195" y="210" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">快速重传触发的ACK跳过次数</text>
+  <text x="195" y="225" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">建议值: 0~2</text>
+  
+  <!-- 拥塞控制参数 -->
+  <rect x="330" y="170" width="250" height="60" rx="5" fill="#bbdefb" stroke="#1565c0" stroke-width="1" />
+  <text x="455" y="190" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">拥塞控制开关</text>
+  <text x="455" y="210" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">是否关闭拥塞控制</text>
+  <text x="455" y="225" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">值: 0(不关闭), 1(关闭)</text>
+  
+  <!-- 预设模式 -->
+  <rect x="50" y="260" width="550" height="190" rx="5" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2" />
+  <text x="60" y="280" font-family="Arial" font-size="16" font-weight="bold" text-anchor="start" fill="#000">预设模式</text>
+  
+  <!-- 默认模式 -->
+  <rect x="70" y="300" width="250" height="60" rx="5" fill="#c8e6c9" stroke="#2e7d32" stroke-width="1" />
+  <text x="195" y="320" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">默认模式</text>
+  <text x="195" y="340" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">无延迟=关闭, 时钟间隔=100ms</text>
+  <text x="195" y="355" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">像TCP一样使用</text>
+  
+  <!-- 普通模式 -->
+  <rect x="330" y="300" width="250" height="60" rx="5" fill="#c8e6c9" stroke="#2e7d32" stroke-width="1" />
+  <text x="455" y="320" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">普通模式</text>
+  <text x="455" y="340" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">无延迟=关闭, 时钟间隔=40ms</text>
+  <text x="455" y="355" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">比默认模式响应更快</text>
+  
+  <!-- 流式模式 -->
+  <rect x="70" y="370" width="250" height="60" rx="5" fill="#c8e6c9" stroke="#2e7d32" stroke-width="1" />
+  <text x="195" y="390" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">流式模式</text>
+  <text x="195" y="410" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">无延迟=开启, 时钟间隔=20ms</text>
+  <text x="195" y="425" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">适合流媒体传输</text>
+  
+  <!-- 游戏模式 -->
+  <rect x="330" y="370" width="250" height="60" rx="5" fill="#c8e6c9" stroke="#2e7d32" stroke-width="1" />
+  <text x="455" y="390" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">游戏模式</text>
+  <text x="455" y="410" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">无延迟=开启, 时钟间隔=10ms, 快速重传=2</text>
+  <text x="455" y="425" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">最低延迟，适合实时游戏</text>
+</svg> 

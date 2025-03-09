@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="650" height="420" xmlns="http://www.w3.org/2000/svg">
+  <!-- 增加了宽度和高度，使内容有更多空间 -->
+  
+  <!-- 背景 -->
+  <rect width="650" height="420" fill="#f9f9f9" />
+  
+  <!-- 标题 -->
+  <text x="325" y="35" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="#000">KCP滑动窗口与流量控制</text>
+  
+  <!-- 发送方窗口 -->
+  <rect x="50" y="70" width="550" height="130" rx="5" fill="#e3f2fd" stroke="#1565c0" stroke-width="2" />
+  <text x="325" y="95" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#000">发送方窗口</text>
+  
+  <!-- 已发送已确认 -->
+  <rect x="65" y="105" width="125" height="85" rx="3" fill="#c5e1a5" stroke="#558b2f" stroke-width="1" />
+  <text x="127" y="130" font-family="Arial" font-size="14" text-anchor="middle" fill="#000">已发送已确认</text>
+  <text x="127" y="155" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">[0, snd_una-1]</text>
+  <text x="127" y="180" font-family="Arial" font-size="12" text-anchor="middle" fill="#558b2f">可以释放</text>
+  
+  <!-- 已发送未确认 -->
+  <rect x="200" y="105" width="125" height="85" rx="3" fill="#ffe0b2" stroke="#ef6c00" stroke-width="1" />
+  <text x="262" y="130" font-family="Arial" font-size="14" text-anchor="middle" fill="#000">已发送未确认</text>
+  <text x="262" y="155" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">[snd_una, snd_nxt-1]</text>
+  <text x="262" y="180" font-family="Arial" font-size="12" text-anchor="middle" fill="#ef6c00">可能需要重传</text>
+  
+  <!-- 可发送 -->
+  <rect x="335" y="105" width="125" height="85" rx="3" fill="#b3e5fc" stroke="#0277bd" stroke-width="1" />
+  <text x="397" y="130" font-family="Arial" font-size="14" text-anchor="middle" fill="#000">可发送未发送</text>
+  <text x="397" y="155" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">[snd_nxt, 窗口上限]</text>
+  <text x="397" y="180" font-family="Arial" font-size="12" text-anchor="middle" fill="#0277bd">窗口内可发送</text>
+  
+  <!-- 窗口外不可发送 -->
+  <rect x="470" y="105" width="115" height="85" rx="3" fill="#f5f5f5" stroke="#9e9e9e" stroke-width="1" />
+  <text x="527" y="130" font-family="Arial" font-size="14" text-anchor="middle" fill="#000">窗口外</text>
+  <text x="527" y="155" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">[窗口上限+1,∞]</text>
+  <text x="527" y="180" font-family="Arial" font-size="12" text-anchor="middle" fill="#9e9e9e">暂不可发送</text>
+  
+  <!-- 接收方窗口 -->
+  <rect x="50" y="235" width="550" height="130" rx="5" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2" />
+  <text x="325" y="260" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#000">接收方窗口</text>
+  
+  <!-- 已接收已确认 -->
+  <rect x="65" y="270" width="125" height="85" rx="3" fill="#c5e1a5" stroke="#558b2f" stroke-width="1" />
+  <text x="127" y="295" font-family="Arial" font-size="14" text-anchor="middle" fill="#000">已接收已确认</text>
+  <text x="127" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">[0, rcv_nxt-1]</text>
+  <text x="127" y="345" font-family="Arial" font-size="12" text-anchor="middle" fill="#558b2f">已上交应用层</text>
+  
+  <!-- 期望接收 -->
+  <rect x="200" y="270" width="180" height="85" rx="3" fill="#b3e5fc" stroke="#0277bd" stroke-width="1" />
+  <text x="290" y="295" font-family="Arial" font-size="14" text-anchor="middle" fill="#000">期望接收</text>
+  <text x="290" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">[rcv_nxt, rcv_nxt+rcv_wnd-1]</text>
+  <text x="290" y="345" font-family="Arial" font-size="12" text-anchor="middle" fill="#0277bd">窗口内可接收</text>
+  
+  <!-- 窗口外 -->
+  <rect x="390" y="270" width="195" height="85" rx="3" fill="#f5f5f5" stroke="#9e9e9e" stroke-width="1" />
+  <text x="487" y="295" font-family="Arial" font-size="14" text-anchor="middle" fill="#000">窗口外</text>
+  <text x="487" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">[rcv_nxt+rcv_wnd, ∞]</text>
+  <text x="487" y="345" font-family="Arial" font-size="12" text-anchor="middle" fill="#9e9e9e">丢弃或缓存</text>
+  
+  <!-- 窗口计算公式 -->
+  <rect x="50" y="375" width="550" height="35" rx="3" fill="#e0f7fa" stroke="#006064" stroke-width="1" />
+  <text x="325" y="398" font-family="Arial" font-size="14" text-anchor="middle" fill="#000">有效发送窗口 = min(拥塞窗口cwnd, 接收方通告窗口rmt_wnd)</text>
+</svg> 

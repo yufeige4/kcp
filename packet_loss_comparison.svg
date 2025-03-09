@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="650" height="430" xmlns="http://www.w3.org/2000/svg">
+  <!-- 增加了宽度和高度，使内容有更多空间 -->
+  
+  <!-- 背景 -->
+  <rect width="650" height="430" fill="#f9f9f9" />
+  
+  <!-- 标题 -->
+  <text x="325" y="35" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="#000">不同丢包率下的吞吐量对比</text>
+  
+  <!-- 图例 -->
+  <rect x="480" y="65" width="20" height="12" fill="#1565c0" />
+  <text x="510" y="76" font-family="Arial" font-size="14" text-anchor="start" fill="#000">KCP</text>
+  
+  <rect x="480" y="87" width="20" height="12" fill="#2e7d32" />
+  <text x="510" y="98" font-family="Arial" font-size="14" text-anchor="start" fill="#000">TCP</text>
+  
+  <rect x="480" y="109" width="20" height="12" fill="#ef6c00" />
+  <text x="510" y="120" font-family="Arial" font-size="14" text-anchor="start" fill="#000">Reliable UDP</text>
+  
+  <!-- 坐标轴 -->
+  <line x1="120" y1="320" x2="520" y2="320" stroke="#000" stroke-width="2" />
+  <line x1="120" y1="120" x2="120" y2="320" stroke="#000" stroke-width="2" />
+  
+  <!-- X轴标签 -->
+  <text x="120" y="340" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">0%</text>
+  <text x="186" y="340" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">5%</text>
+  <text x="253" y="340" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">10%</text>
+  <text x="320" y="340" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">15%</text>
+  <text x="386" y="340" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">20%</text>
+  <text x="453" y="340" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">25%</text>
+  <text x="520" y="340" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">30%</text>
+  <text x="320" y="365" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">丢包率</text>
+  
+  <!-- Y轴标签 -->
+  <text x="105" y="320" font-family="Arial" font-size="12" text-anchor="end" fill="#000">0%</text>
+  <text x="105" y="280" font-family="Arial" font-size="12" text-anchor="end" fill="#000">20%</text>
+  <text x="105" y="240" font-family="Arial" font-size="12" text-anchor="end" fill="#000">40%</text>
+  <text x="105" y="200" font-family="Arial" font-size="12" text-anchor="end" fill="#000">60%</text>
+  <text x="105" y="160" font-family="Arial" font-size="12" text-anchor="end" fill="#000">80%</text>
+  <text x="105" y="120" font-family="Arial" font-size="12" text-anchor="end" fill="#000">100%</text>
+  <text x="60" y="220" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#000" transform="rotate(-90, 60, 220)">吞吐量比例</text>
+  
+  <!-- 网格线 -->
+  <line x1="120" y1="280" x2="520" y2="280" stroke="#ccc" stroke-width="1" stroke-dasharray="5,5" />
+  <line x1="120" y1="240" x2="520" y2="240" stroke="#ccc" stroke-width="1" stroke-dasharray="5,5" />
+  <line x1="120" y1="200" x2="520" y2="200" stroke="#ccc" stroke-width="1" stroke-dasharray="5,5" />
+  <line x1="120" y1="160" x2="520" y2="160" stroke="#ccc" stroke-width="1" stroke-dasharray="5,5" />
+  <line x1="120" y1="120" x2="520" y2="120" stroke="#ccc" stroke-width="1" stroke-dasharray="5,5" />
+  
+  <line x1="186" y1="120" x2="186" y2="320" stroke="#ccc" stroke-width="1" stroke-dasharray="5,5" />
+  <line x1="253" y1="120" x2="253" y2="320" stroke="#ccc" stroke-width="1" stroke-dasharray="5,5" />
+  <line x1="320" y1="120" x2="320" y2="320" stroke="#ccc" stroke-width="1" stroke-dasharray="5,5" />
+  <line x1="386" y1="120" x2="386" y2="320" stroke="#ccc" stroke-width="1" stroke-dasharray="5,5" />
+  <line x1="453" y1="120" x2="453" y2="320" stroke="#ccc" stroke-width="1" stroke-dasharray="5,5" />
+  
+  <!-- KCP数据 -->
+  <polyline points="120,120 186,145 253,175 320,220 386,250 453,265 520,280" 
+    fill="none" stroke="#1565c0" stroke-width="3" />
+  
+  <!-- TCP数据 -->
+  <polyline points="120,120 186,190 253,250 320,270 386,285 453,295 520,297" 
+    fill="none" stroke="#2e7d32" stroke-width="3" />
+  
+  <!-- Reliable UDP数据 -->
+  <polyline points="120,120 186,160 253,210 320,250 386,260 453,280 520,290" 
+    fill="none" stroke="#ef6c00" stroke-width="3" />
+  
+  <!-- 数据点 -->
+  <!-- KCP -->
+  <circle cx="120" cy="120" r="5" fill="#1565c0" />
+  <circle cx="186" cy="145" r="5" fill="#1565c0" />
+  <circle cx="253" cy="175" r="5" fill="#1565c0" />
+  <circle cx="320" cy="220" r="5" fill="#1565c0" />
+  <circle cx="386" cy="250" r="5" fill="#1565c0" />
+  <circle cx="453" cy="265" r="5" fill="#1565c0" />
+  <circle cx="520" cy="280" r="5" fill="#1565c0" />
+  
+  <!-- TCP -->
+  <circle cx="120" cy="120" r="5" fill="#2e7d32" />
+  <circle cx="186" cy="190" r="5" fill="#2e7d32" />
+  <circle cx="253" cy="250" r="5" fill="#2e7d32" />
+  <circle cx="320" cy="270" r="5" fill="#2e7d32" />
+  <circle cx="386" cy="285" r="5" fill="#2e7d32" />
+  <circle cx="453" cy="295" r="5" fill="#2e7d32" />
+  <circle cx="520" cy="297" r="5" fill="#2e7d32" />
+  
+  <!-- Reliable UDP -->
+  <circle cx="120" cy="120" r="5" fill="#ef6c00" />
+  <circle cx="186" cy="160" r="5" fill="#ef6c00" />
+  <circle cx="253" cy="210" r="5" fill="#ef6c00" />
+  <circle cx="320" cy="250" r="5" fill="#ef6c00" />
+  <circle cx="386" cy="260" r="5" fill="#ef6c00" />
+  <circle cx="453" cy="280" r="5" fill="#ef6c00" />
+  <circle cx="520" cy="290" r="5" fill="#ef6c00" />
+  
+  <!-- 数据标签，调整位置避免重叠 -->
+  <text x="120" y="107" font-family="Arial" font-size="12" text-anchor="middle" fill="#1565c0">100%</text>
+  <text x="186" y="132" font-family="Arial" font-size="12" text-anchor="middle" fill="#1565c0">85%</text>
+  <text x="253" y="162" font-family="Arial" font-size="12" text-anchor="middle" fill="#1565c0">75%</text>
+  <text x="320" y="207" font-family="Arial" font-size="12" text-anchor="middle" fill="#1565c0">60%</text>
+  <text x="386" y="237" font-family="Arial" font-size="12" text-anchor="middle" fill="#1565c0">50%</text>
+  <text x="453" y="252" font-family="Arial" font-size="12" text-anchor="middle" fill="#1565c0">45%</text>
+  <text x="520" y="267" font-family="Arial" font-size="12" text-anchor="middle" fill="#1565c0">35%</text>
+  
+  <text x="320" y="400" font-family="Arial" font-size="12" font-style="italic" text-anchor="middle" fill="#000">数据来源：基于KCP源码注释和实验模拟</text>
+</svg> 

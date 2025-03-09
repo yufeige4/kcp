@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="600" height="500" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="600" height="500" fill="#f9f9f9" />
+  
+  <!-- 标题 -->
+  <text x="300" y="30" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="#000">协议状态机对比</text>
+  
+  <!-- KCP状态机 (简化版) -->
+  <rect x="50" y="60" width="500" height="180" rx="5" fill="#e3f2fd" stroke="#1565c0" stroke-width="2" />
+  <text x="300" y="80" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#000">KCP状态机 (简化)</text>
+  
+  <!-- KCP状态 -->
+  <rect x="80" y="100" width="100" height="40" rx="5" fill="#90caf9" stroke="#1565c0" stroke-width="1" />
+  <text x="130" y="125" font-family="Arial" font-size="14" text-anchor="middle" fill="#000">初始化</text>
+  
+  <rect x="220" y="100" width="100" height="40" rx="5" fill="#90caf9" stroke="#1565c0" stroke-width="1" />
+  <text x="270" y="125" font-family="Arial" font-size="14" text-anchor="middle" fill="#000">数据传输</text>
+  
+  <rect x="360" y="100" width="100" height="40" rx="5" fill="#90caf9" stroke="#1565c0" stroke-width="1" />
+  <text x="410" y="125" font-family="Arial" font-size="14" text-anchor="middle" fill="#000">连接终止</text>
+  
+  <!-- KCP状态转换 -->
+  <line x1="180" y1="120" x2="220" y2="120" stroke="#1565c0" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="320" y1="120" x2="360" y2="120" stroke="#1565c0" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <line x1="120" y1="140" x2="120" y2="170" stroke="#1565c0" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="120" y1="170" x2="400" y2="170" stroke="#1565c0" stroke-width="2" />
+  <line x1="400" y1="170" x2="400" y2="140" stroke="#1565c0" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="260" y="165" font-family="Arial" font-size="12" text-anchor="middle" fill="#1565c0">直接终止 (无握手过程)</text>
+  
+  <text x="200" y="105" font-family="Arial" font-size="12" text-anchor="middle" fill="#1565c0">发送数据</text>
+  <text x="340" y="105" font-family="Arial" font-size="12" text-anchor="middle" fill="#1565c0">结束通信</text>
+  
+  <text x="100" y="200" font-family="Arial" font-size="12" text-anchor="start" fill="#000">● 状态少，转换简单</text>
+  <text x="100" y="220" font-family="Arial" font-size="12" text-anchor="start" fill="#000">● 无握手和挥手过程</text>
+  
+  <!-- TCP状态机 -->
+  <rect x="50" y="250" width="500" height="230" rx="5" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2" />
+  <text x="300" y="270" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#000">TCP状态机 (简化)</text>
+  
+  <!-- TCP状态 - 第一行 -->
+  <rect x="80" y="290" width="90" height="35" rx="5" fill="#a5d6a7" stroke="#2e7d32" stroke-width="1" />
+  <text x="125" y="312" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">CLOSED</text>
+  
+  <rect x="200" y="290" width="90" height="35" rx="5" fill="#a5d6a7" stroke="#2e7d32" stroke-width="1" />
+  <text x="245" y="312" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">LISTEN</text>
+  
+  <rect x="320" y="290" width="90" height="35" rx="5" fill="#a5d6a7" stroke="#2e7d32" stroke-width="1" />
+  <text x="365" y="312" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">SYN_SENT</text>
+  
+  <rect x="440" y="290" width="90" height="35" rx="5" fill="#a5d6a7" stroke="#2e7d32" stroke-width="1" />
+  <text x="485" y="312" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">SYN_RCVD</text>
+  
+  <!-- TCP状态 - 第二行 -->
+  <rect x="80" y="340" width="90" height="35" rx="5" fill="#a5d6a7" stroke="#2e7d32" stroke-width="1" />
+  <text x="125" y="362" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">ESTABLISHED</text>
+  
+  <rect x="200" y="340" width="90" height="35" rx="5" fill="#a5d6a7" stroke="#2e7d32" stroke-width="1" />
+  <text x="245" y="362" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">FIN_WAIT_1</text>
+  
+  <rect x="320" y="340" width="90" height="35" rx="5" fill="#a5d6a7" stroke="#2e7d32" stroke-width="1" />
+  <text x="365" y="362" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">FIN_WAIT_2</text>
+  
+  <rect x="440" y="340" width="90" height="35" rx="5" fill="#a5d6a7" stroke="#2e7d32" stroke-width="1" />
+  <text x="485" y="362" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">CLOSE_WAIT</text>
+  
+  <!-- TCP状态 - 第三行 -->
+  <rect x="80" y="390" width="90" height="35" rx="5" fill="#a5d6a7" stroke="#2e7d32" stroke-width="1" />
+  <text x="125" y="412" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">TIME_WAIT</text>
+  
+  <rect x="200" y="390" width="90" height="35" rx="5" fill="#a5d6a7" stroke="#2e7d32" stroke-width="1" />
+  <text x="245" y="412" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">CLOSING</text>
+  
+  <rect x="320" y="390" width="90" height="35" rx="5" fill="#a5d6a7" stroke="#2e7d32" stroke-width="1" />
+  <text x="365" y="412" font-family="Arial" font-size="12" text-anchor="middle" fill="#000">LAST_ACK</text>
+  
+  <!-- TCP状态转换 (简化，只显示部分重要转换) -->
+  <line x1="125" y1="325" x2="125" y2="340" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowhead)" />
+  <line x1="245" y1="325" x2="365" y2="325" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowhead)" />
+  <line x1="485" y1="325" x2="485" y2="340" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowhead)" />
+  <line x1="170" y1="307" x2="200" y2="307" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowhead)" />
+  <line x1="290" y1="307" x2="320" y2="307" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowhead)" />
+  <line x1="410" y1="307" x2="440" y2="307" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowhead)" />
+  
+  <line x1="170" y1="357" x2="200" y2="357" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowhead)" />
+  <line x1="290" y1="357" x2="320" y2="357" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowhead)" />
+  <line x1="410" y1="357" x2="440" y2="357" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowhead)" />
+  
+  <line x1="125" y1="375" x2="125" y2="390" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowhead)" />
+  <line x1="245" y1="375" x2="245" y2="390" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowhead)" />
+  <line x1="365" y1="375" x2="365" y2="390" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowhead)" />
+  
+  <text x="100" y="440" font-family="Arial" font-size="12" text-anchor="start" fill="#000">● 状态多，转换复杂</text>
+  <text x="100" y="460" font-family="Arial" font-size="12" text-anchor="start" fill="#000">● 完整的三次握手和四次挥手过程</text>
+  <text x="100" y="480" font-family="Arial" font-size="12" text-anchor="start" fill="#000">● 超时等待机制</text>
+  
+  <!-- 箭头标记定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#000" />
+    </marker>
+  </defs>
+</svg> 

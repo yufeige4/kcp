@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- 添加白色背景 -->
+  <rect width="800" height="600" fill="white" />
+  
+  <style>
+    .title {
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      text-anchor: middle;
+    }
+    .subtitle {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      text-anchor: middle;
+    }
+    .node {
+      fill: #4b96e5;
+      stroke: #2b6cb0;
+      stroke-width: 2px;
+    }
+    .center-node {
+      fill: #ff7e00;
+      stroke: #b25600;
+      stroke-width: 3px;
+    }
+    .label {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: bold;
+      text-anchor: middle;
+      fill: white;
+    }
+    .category-label {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      text-anchor: middle;
+    }
+    .node-detail {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      text-anchor: middle;
+    }
+    .connection {
+      stroke: #999;
+      stroke-width: 2px;
+    }
+    .highlight {
+      fill: #34d399;
+      stroke: #059669;
+    }
+  </style>
+
+  <!-- 标题 -->
+  <text x="400" y="40" class="title">KCP应用生态系统</text>
+  <text x="400" y="65" class="subtitle">基于实际项目与应用案例</text>
+
+  <!-- 中心节点 -->
+  <circle cx="400" cy="300" r="50" class="center-node" />
+  <text x="400" y="300" class="label">KCP协议</text>
+  <text x="400" y="320" class="node-detail">快速可靠传输</text>
+
+  <!-- 网络加速工具 -->
+  <line x1="400" y1="250" x2="200" y2="150" class="connection" />
+  <circle cx="200" cy="150" r="40" class="node" />
+  <text x="200" y="145" class="label">网络加速</text>
+  <text x="200" y="165" class="node-detail">工具</text>
+  
+  <text x="120" y="110" class="node-detail">kcptun</text>
+  <text x="180" y="90" class="node-detail">v2ray</text>
+  <text x="240" y="110" class="node-detail">Lantern</text>
+
+  <!-- 游戏网络 -->
+  <line x1="450" y1="300" x2="650" y2="180" class="connection" />
+  <circle cx="650" cy="180" r="40" class="node highlight" />
+  <text x="650" y="175" class="label">游戏网络</text>
+  <text x="650" y="195" class="node-detail">低延迟交互</text>
+  
+  <text x="580" y="130" class="node-detail">原神</text>
+  <text x="650" y="110" class="node-detail">SpatialOS</text>
+  <text x="720" y="130" class="node-detail">西山居游戏</text>
+
+  <!-- 实时音视频 -->
+  <line x1="350" y1="300" x2="150" y2="300" class="connection" />
+  <circle cx="150" cy="300" r="40" class="node" />
+  <text x="150" y="295" class="label">实时音视频</text>
+  <text x="150" y="315" class="node-detail">流媒体传输</text>
+  
+  <text x="80" y="270" class="node-detail">网易CC</text>
+  <text x="150" y="250" class="node-detail">网易BOBO</text>
+  <text x="220" y="270" class="node-detail">云帆加速</text>
+
+  <!-- 文件同步传输 -->
+  <line x1="400" y1="350" x2="200" y2="450" class="connection" />
+  <circle cx="200" cy="450" r="40" class="node" />
+  <text x="200" y="445" class="label">文件同步</text>
+  <text x="200" y="465" class="node-detail">数据传输</text>
+  
+  <text x="150" y="500" class="node-detail">Syncthing</text>
+  <text x="250" y="500" class="node-detail">阿里云GRTN</text>
+
+  <!-- 物联网与边缘计算 -->
+  <line x1="450" y1="300" x2="650" y2="420" class="connection" />
+  <circle cx="650" cy="420" r="40" class="node" />
+  <text x="650" y="415" class="label">物联网</text>
+  <text x="650" y="435" class="node-detail">边缘计算</text>
+  
+  <text x="600" y="480" class="node-detail">嵌入式设备</text>
+  <text x="700" y="480" class="node-detail">不稳定网络</text>
+
+  <!-- 多语言生态 -->
+  <line x1="400" y1="350" x2="400" y2="500" class="connection" />
+  <circle cx="400" cy="500" r="40" class="node" />
+  <text x="400" y="495" class="label">多语言生态</text>
+  <text x="400" y="515" class="node-detail">跨平台支持</text>
+  
+  <text x="320" y="550" class="node-detail">Go/C#/Java</text>
+  <text x="400" y="550" class="node-detail">Rust/Python</text>
+  <text x="480" y="550" class="node-detail">Lua/Perl</text>
+
+  <!-- 图例 -->
+  <rect x="630" y="520" width="150" height="65" rx="5" ry="5" fill="#f0f0f0" stroke="#ccc" />
+  <circle cx="650" cy="535" r="8" class="center-node" />
+  <text x="710" y="540" class="node-detail" fill="#000">KCP核心</text>
+  <circle cx="650" cy="555" r="8" class="node" />
+  <text x="710" y="560" class="node-detail" fill="#000">应用领域</text>
+  <circle cx="650" cy="575" r="8" class="highlight" />
+  <text x="710" y="580" class="node-detail" fill="#000">主要应用</text>
+</svg> 

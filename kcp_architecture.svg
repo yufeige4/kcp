@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="600" height="300" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="600" height="300" fill="#f9f9f9" />
+
+  <!-- 应用层 -->
+  <rect x="50" y="50" width="500" height="50" rx="5" fill="#a5d6a7" stroke="#2e7d32" stroke-width="2" />
+  <text x="300" y="80" font-family="Arial" font-size="18" text-anchor="middle" fill="#000">应用层 (Application)</text>
+
+  <!-- KCP层 -->
+  <rect x="50" y="120" width="500" height="60" rx="5" fill="#90caf9" stroke="#1565c0" stroke-width="2" />
+  <text x="300" y="155" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="#000">KCP 协议</text>
+
+  <!-- UDP层 -->
+  <rect x="50" y="200" width="500" height="50" rx="5" fill="#ffcc80" stroke="#ef6c00" stroke-width="2" />
+  <text x="300" y="230" font-family="Arial" font-size="18" text-anchor="middle" fill="#000">UDP (User Datagram Protocol)</text>
+
+  <!-- 箭头 -->
+  <path d="M300,100 L300,120" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)" />
+  <path d="M300,180 L300,200" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)" />
+
+  <!-- 箭头标记定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#000" />
+    </marker>
+  </defs>
+
+  <!-- KCP特点 -->
+  <text x="100" y="155" font-family="Arial" font-size="12" fill="#000">• 快速重传</text>
+  <text x="200" y="155" font-family="Arial" font-size="12" fill="#000">• 流量控制</text>
+  <text x="300" y="155" font-family="Arial" font-size="12" fill="#000">• 窗口机制</text>
+  <text x="400" y="155" font-family="Arial" font-size="12" fill="#000">• 可靠传输</text>
+</svg> 
